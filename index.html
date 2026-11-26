@@ -1224,7 +1224,7 @@ function syncProjectActivityCards() {
 }
 
 function renderProjects() {
-  document.getElementById('projects-list').innerHTML = PROJECTS.map((p,i)=>`
+  document.getElementById('projects-list').innerHTML = ['pumpfun-volume-tracker','token-watchlist','shems-coin-tracker','discord-table-generator'].map(slug => PROJECTS.find(p => p.slug === slug)).filter(Boolean).map((p,i)=>`
     <article class="glass-card project-card ${p.slug==='token-watchlist'?'token-watchlist-card':''} animate-fade-up" style="animation-delay:${i*.1}s;cursor:pointer" onclick="location.hash='/projects/${p.slug}'">
       <div class="project-inner">
         <div class="project-img-wrap"><div class="img-box"><img src="${p.img}" alt="${p.title}" loading="lazy"/></div></div>
